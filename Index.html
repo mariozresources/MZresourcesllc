@@ -1,0 +1,1433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MZ Resources LLC — Bookkeeping, Payroll & Business Services | Detroit, MI</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0d1f3c;
+    --navy-mid: #1a3360;
+    --navy-light: #2a4a80;
+    --gold: #c9a84c;
+    --gold-light: #e2c270;
+    --gold-pale: #f5e9c8;
+    --cream: #faf8f4;
+    --warm-white: #ffffff;
+    --charcoal: #1a1a1a;
+    --gray: #6b7280;
+    --light-gray: #f0ede8;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--charcoal);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 4rem;
+    background: rgba(13, 31, 60, 0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(201, 168, 76, 0.25);
+  }
+
+  .nav-logo {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+  }
+  .nav-logo-main {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.55rem;
+    font-weight: 700;
+    color: var(--warm-white);
+    letter-spacing: 0.08em;
+    line-height: 1;
+  }
+  .nav-logo-main span { color: var(--gold); }
+  .nav-logo-sub {
+    font-size: 0.6rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-top: 0.2rem;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+    align-items: center;
+  }
+  .nav-links a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold-light); }
+
+  .nav-cta {
+    background: transparent !important;
+    color: var(--gold) !important;
+    border: 1.5px solid var(--gold) !important;
+    padding: 0.55rem 1.4rem;
+    border-radius: 1px;
+    font-weight: 600 !important;
+    transition: background 0.2s, color 0.2s !important;
+  }
+  .nav-cta:hover {
+    background: var(--gold) !important;
+    color: var(--navy) !important;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: var(--navy);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 76px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* subtle grid pattern */
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+  }
+
+  /* gold glow top right */
+  .hero::after {
+    content: '';
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(201,168,76,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5rem 4rem 5rem 5.5rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 2.2rem;
+    animation: fadeUp 0.8s ease both;
+  }
+  .hero-tag-line {
+    width: 32px; height: 1px;
+    background: var(--gold);
+  }
+  .hero-tag-text {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .hero-headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3.5rem, 5.5vw, 6rem);
+    font-weight: 700;
+    line-height: 1.05;
+    color: var(--warm-white);
+    margin-bottom: 1.8rem;
+    animation: fadeUp 0.8s 0.1s ease both;
+  }
+  .hero-headline em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .hero-sub {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.58);
+    line-height: 1.85;
+    max-width: 460px;
+    font-weight: 300;
+    margin-bottom: 3rem;
+    animation: fadeUp 0.8s 0.2s ease both;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    animation: fadeUp 0.8s 0.3s ease both;
+  }
+
+  .btn-primary {
+    background: var(--gold);
+    color: var(--navy);
+    padding: 1rem 2.4rem;
+    border: none;
+    border-radius: 1px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--warm-white);
+    padding: 1rem 2.4rem;
+    border: 1.5px solid rgba(255,255,255,0.2);
+    border-radius: 1px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .btn-outline:hover { border-color: var(--gold); background: rgba(201,168,76,0.08); }
+
+  .hero-trust {
+    display: flex;
+    gap: 3rem;
+    margin-top: 4rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    animation: fadeUp 0.8s 0.4s ease both;
+  }
+
+  .trust-item-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .trust-item-label {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.38);
+    margin-top: 0.2rem;
+  }
+
+  .hero-right {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-img {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(to right, var(--navy) 0%, rgba(13,31,60,0.3) 35%, transparent 65%),
+      url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=900&q=80') center/cover no-repeat;
+  }
+
+  .hero-card {
+    position: relative;
+    z-index: 2;
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(201,168,76,0.2);
+    padding: 2.5rem;
+    width: 300px;
+    margin-right: 3rem;
+    animation: fadeUp 0.8s 0.5s ease both;
+  }
+
+  .hero-card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--gold);
+    letter-spacing: 0.08em;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+  }
+
+  .hero-card-services {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+
+  .hero-card-services li {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: rgba(255,255,255,0.8);
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+
+  .hero-card-services li::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--gold);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* SERVICES */
+  .services-section {
+    background: var(--warm-white);
+    padding: 8rem 5.5rem;
+  }
+
+  .section-tag {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+  .section-tag::before {
+    content: '';
+    width: 28px; height: 1px;
+    background: var(--gold);
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.5rem, 4vw, 4rem);
+    font-weight: 700;
+    line-height: 1.05;
+    color: var(--navy);
+  }
+
+  .section-body {
+    color: var(--gray);
+    font-size: 1rem;
+    line-height: 1.85;
+    font-weight: 300;
+  }
+
+  .services-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: end;
+    margin-bottom: 5rem;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: #e8e3db;
+  }
+
+  .service-card {
+    background: var(--cream);
+    padding: 3rem 2.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s, transform 0.3s;
+    cursor: default;
+  }
+  .service-card:hover {
+    background: var(--navy);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 50px rgba(13,31,60,0.15);
+    z-index: 1;
+  }
+  .service-card:hover .card-title { color: var(--warm-white); }
+  .service-card:hover .card-desc { color: rgba(255,255,255,0.55); }
+  .service-card:hover .card-icon-wrap { background: rgba(201,168,76,0.15); border-color: rgba(201,168,76,0.3); }
+  .service-card:hover .card-icon-wrap span { filter: none; }
+
+  .card-icon-wrap {
+    width: 52px; height: 52px;
+    border-radius: 1px;
+    background: var(--gold-pale);
+    border: 1px solid rgba(201,168,76,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    margin-bottom: 1.8rem;
+    transition: background 0.3s, border-color 0.3s;
+  }
+
+  .card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 0.8rem;
+    transition: color 0.3s;
+    line-height: 1.2;
+  }
+
+  .card-desc {
+    color: var(--gray);
+    font-size: 0.88rem;
+    line-height: 1.75;
+    font-weight: 300;
+    transition: color 0.3s;
+  }
+
+  .card-bottom {
+    margin-top: 1.8rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(201,168,76,0.2);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  /* ABOUT */
+  .about-section {
+    background: var(--navy);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 600px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-section::before {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: -80px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .about-left {
+    padding: 7rem 4rem 7rem 5.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .about-left .section-tag { margin-bottom: 1rem; }
+  .about-left .section-title { color: var(--warm-white); margin-bottom: 1.8rem; }
+
+  .about-text {
+    color: rgba(255,255,255,0.58);
+    font-size: 0.97rem;
+    line-height: 1.9;
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+  }
+
+  .about-highlight {
+    border-left: 2px solid var(--gold);
+    padding: 1.2rem 1.5rem;
+    background: rgba(201,168,76,0.06);
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.7;
+    margin: 2rem 0;
+  }
+
+  .about-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 1rem;
+  }
+
+  .pill {
+    background: rgba(201,168,76,0.1);
+    border: 1px solid rgba(201,168,76,0.25);
+    color: var(--gold-light);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.4rem 0.9rem;
+    border-radius: 1px;
+  }
+
+  .about-right {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-img {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(to left, transparent 50%, var(--navy) 100%),
+      url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80') center/cover no-repeat;
+  }
+
+  /* industries */
+  .industries-section {
+    background: var(--cream);
+    padding: 7rem 5.5rem;
+  }
+
+  .industries-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: end;
+    margin-bottom: 4rem;
+  }
+
+  .industries-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+
+  .industry-card {
+    background: var(--warm-white);
+    border: 1px solid #e8e3db;
+    padding: 2rem 1.8rem;
+    text-align: center;
+    transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+  }
+  .industry-card:hover {
+    border-color: var(--gold);
+    box-shadow: 0 8px 30px rgba(201,168,76,0.12);
+    transform: translateY(-3px);
+  }
+
+  .industry-icon { font-size: 2rem; margin-bottom: 0.8rem; display: block; }
+  .industry-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 0.4rem;
+  }
+  .industry-desc {
+    font-size: 0.78rem;
+    color: var(--gray);
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  /* TESTIMONIALS */
+  .testimonials-section {
+    background: var(--warm-white);
+    padding: 8rem 5.5rem;
+  }
+
+  .testimonials-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+  .testimonials-header .section-tag {
+    justify-content: center;
+  }
+  .testimonials-header .section-tag::before { display: none; }
+  .testimonials-header .section-title { margin-top: 0.5rem; }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .testimonial-card {
+    background: var(--cream);
+    border: 1px solid #e8e3db;
+    padding: 2.5rem;
+    position: relative;
+  }
+
+  .t-stars {
+    color: var(--gold);
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    margin-bottom: 1.2rem;
+  }
+
+  .t-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 1.8rem;
+  }
+
+  .t-author {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid #e8e3db;
+  }
+
+  .t-avatar {
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    background: var(--navy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--gold);
+    flex-shrink: 0;
+  }
+
+  .t-name {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--navy);
+  }
+  .t-role {
+    font-size: 0.75rem;
+    color: var(--gray);
+    margin-top: 0.1rem;
+  }
+
+  /* FAQ */
+  .faq-section {
+    background: var(--navy);
+    padding: 8rem 5.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .faq-section::after {
+    content: 'FAQ';
+    position: absolute;
+    right: -2rem; bottom: -3rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16rem;
+    font-weight: 700;
+    color: rgba(255,255,255,0.02);
+    pointer-events: none;
+    letter-spacing: -0.04em;
+  }
+
+  .faq-inner {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 6rem;
+    align-items: start;
+    position: relative;
+    z-index: 1;
+  }
+
+  .faq-left .section-title { color: var(--warm-white); margin-bottom: 1.5rem; }
+  .faq-left .section-body { color: rgba(255,255,255,0.5); margin-bottom: 2.5rem; }
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    overflow: hidden;
+  }
+
+  .faq-question {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 1.5rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    text-align: left;
+    color: var(--warm-white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    gap: 1rem;
+    transition: color 0.2s;
+  }
+  .faq-question:hover { color: var(--gold); }
+
+  .faq-icon {
+    color: var(--gold);
+    font-size: 1.2rem;
+    flex-shrink: 0;
+    transition: transform 0.3s;
+    font-weight: 300;
+  }
+
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.3s;
+    color: rgba(255,255,255,0.5);
+    font-size: 0.88rem;
+    line-height: 1.8;
+    font-weight: 300;
+  }
+
+  .faq-item.open .faq-answer {
+    max-height: 200px;
+    padding-bottom: 1.5rem;
+  }
+  .faq-item.open .faq-icon { transform: rotate(45deg); }
+  .faq-item.open .faq-question { color: var(--gold); }
+
+  /* CONTACT */
+  .contact-section {
+    background: var(--cream);
+    padding: 8rem 5.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: start;
+  }
+
+  .contact-left .section-title { margin-bottom: 1.2rem; }
+  .contact-left .section-body { margin-bottom: 3rem; }
+
+  .contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 1.2rem 1.5rem;
+    background: var(--warm-white);
+    border: 1px solid #e8e3db;
+    text-decoration: none;
+    transition: border-color 0.2s, transform 0.15s;
+  }
+  .contact-item:hover { border-color: var(--gold); transform: translateX(4px); }
+
+  .ci-icon {
+    width: 42px; height: 42px;
+    background: var(--navy);
+    border-radius: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+
+  .ci-label {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.2rem;
+  }
+  .ci-value {
+    font-size: 0.92rem;
+    font-weight: 500;
+    color: var(--navy);
+  }
+
+  .social-links {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .social-link {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: var(--navy);
+    color: var(--warm-white);
+    text-decoration: none;
+    padding: 0.7rem 1.2rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border-radius: 1px;
+    transition: background 0.2s;
+  }
+  .social-link:hover { background: var(--navy-light); }
+
+  .contact-form {
+    background: var(--navy);
+    padding: 3.5rem;
+  }
+
+  .form-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--warm-white);
+    margin-bottom: 0.4rem;
+  }
+  .form-sub {
+    color: rgba(255,255,255,0.38);
+    font-size: 0.82rem;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+  }
+
+  .form-group {
+    margin-bottom: 1.2rem;
+  }
+  .form-group label {
+    display: block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 0.5rem;
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 1px;
+    padding: 0.85rem 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.88rem;
+    color: var(--warm-white);
+    background: rgba(255,255,255,0.05);
+    outline: none;
+    transition: border-color 0.2s;
+    appearance: none;
+  }
+  .form-group input::placeholder,
+  .form-group textarea::placeholder { color: rgba(255,255,255,0.22); }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus { border-color: var(--gold); }
+  .form-group select option { background: var(--navy); color: var(--warm-white); }
+  .form-group textarea { resize: vertical; min-height: 95px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+  .form-submit {
+    width: 100%;
+    background: var(--gold);
+    color: var(--navy);
+    border: none;
+    padding: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 1px;
+    margin-top: 0.5rem;
+    transition: background 0.2s, transform 0.1s;
+  }
+  .form-submit:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+  /* BOTTOM BAR */
+  .bottom-bar {
+    background: var(--navy-mid);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+    padding: 2rem 5rem;
+    flex-wrap: wrap;
+    border-top: 1px solid rgba(201,168,76,0.2);
+  }
+
+  .bb-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: var(--warm-white);
+    text-decoration: none;
+  }
+  .bb-icon {
+    font-size: 1rem;
+    background: rgba(201,168,76,0.15);
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border: 1px solid rgba(201,168,76,0.25);
+  }
+  .bb-label {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: rgba(255,255,255,0.4);
+    font-weight: 600;
+  }
+  .bb-value {
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.85);
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy);
+    padding: 3rem 5.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .footer-logo-main {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--warm-white);
+    letter-spacing: 0.08em;
+  }
+  .footer-logo-main span { color: var(--gold); }
+  .footer-logo-sub {
+    font-size: 0.58rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    margin-top: 0.2rem;
+  }
+
+  .footer-copy {
+    color: rgba(255,255,255,0.28);
+    font-size: 0.75rem;
+    font-weight: 300;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+  .footer-links a {
+    color: rgba(255,255,255,0.3);
+    text-decoration: none;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--gold); }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+  }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  /* RESPONSIVE */
+  @media (max-width: 960px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-right { display: none; }
+    .hero-left { padding: 5rem 2rem 4rem; }
+    .services-section, .industries-section, .testimonials-section, .faq-section, .contact-section { padding: 5rem 2rem; }
+    .services-header, .industries-header { grid-template-columns: 1fr; gap: 1.5rem; }
+    .services-grid { grid-template-columns: 1fr 1fr; }
+    .industries-grid { grid-template-columns: 1fr 1fr; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .about-section { grid-template-columns: 1fr; }
+    .about-right { display: none; }
+    .about-left { padding: 5rem 2rem; }
+    .faq-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .contact-section { grid-template-columns: 1fr; gap: 3rem; }
+    .form-row { grid-template-columns: 1fr; }
+    .bottom-bar { gap: 2rem; padding: 2rem; }
+    footer { padding: 2rem; flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-main">MZ <span>Resources</span></div>
+    <div class="nav-logo-sub">LLC &nbsp;·&nbsp; Detroit, Michigan</div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#industries">Industries</a></li>
+    <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-tag">
+      <div class="hero-tag-line"></div>
+      <span class="hero-tag-text">Detroit's Business Services Partner</span>
+    </div>
+    <h1 class="hero-headline">
+      Your Business,<br>
+      <em>Handled.</em>
+    </h1>
+    <p class="hero-sub">
+      From bookkeeping and payroll to consulting, notary services, and website development — MZ Resources LLC gives Detroit businesses the professional back-office support they need to grow with confidence.
+    </p>
+    <div class="hero-actions">
+      <a href="tel:3133271876" class="btn-primary">Call or Text Us</a>
+      <a href="#contact" class="btn-outline">Send a Message</a>
+    </div>
+    <div class="hero-trust">
+      <div>
+        <div class="trust-item-num">3+</div>
+        <div class="trust-item-label">Years Payroll Experience</div>
+      </div>
+      <div>
+        <div class="trust-item-num">5</div>
+        <div class="trust-item-label">Core Services</div>
+      </div>
+      <div>
+        <div class="trust-item-num">100%</div>
+        <div class="trust-item-label">Client Focused</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-img"></div>
+    <div class="hero-card">
+      <div class="hero-card-title">Our Services</div>
+      <ul class="hero-card-services">
+        <li>Bookkeeping</li>
+        <li>Payroll Processing & Consulting</li>
+        <li>Business Consulting</li>
+        <li>Notary Services</li>
+        <li>Website Development</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services-section" id="services">
+  <div class="services-header reveal">
+    <div>
+      <div class="section-tag">What We Offer</div>
+      <h2 class="section-title">Comprehensive<br>Business Services</h2>
+    </div>
+    <p class="section-body">
+      Whether you're a sole proprietor, a growing small business, or an established company — we provide the professional services that keep your operations running smoothly, accurately, and efficiently.
+    </p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <div class="card-icon-wrap"><span>📒</span></div>
+      <h3 class="card-title">Bookkeeping</h3>
+      <p class="card-desc">Accurate, organized financial records so you always know where your business stands. Monthly reconciliation, expense tracking, and financial reporting tailored to your industry.</p>
+      <div class="card-bottom">Available Year-Round</div>
+    </div>
+    <div class="service-card reveal" style="transition-delay:0.08s">
+      <div class="card-icon-wrap"><span>💼</span></div>
+      <h3 class="card-title">Payroll Processing</h3>
+      <p class="card-desc">With 3+ years in the payroll industry, we process payroll accurately and on time — every time. Direct deposit setup, tax withholdings, and compliance handled for you.</p>
+      <div class="card-bottom">Weekly, Bi-Weekly & Monthly</div>
+    </div>
+    <div class="service-card reveal" style="transition-delay:0.16s">
+      <div class="card-icon-wrap"><span>📊</span></div>
+      <h3 class="card-title">Payroll Consulting</h3>
+      <p class="card-desc">Overpaying for payroll services? We audit your current provider and find you a better deal. Many businesses save hundreds monthly without sacrificing service quality.</p>
+      <div class="card-bottom">Free Initial Review</div>
+    </div>
+    <div class="service-card reveal" style="transition-delay:0.24s">
+      <div class="card-icon-wrap"><span>🧭</span></div>
+      <h3 class="card-title">Business Consulting</h3>
+      <p class="card-desc">Strategic guidance for startups and established businesses alike. From business structure and registration to cash flow planning and growth strategy — we help you make smart decisions.</p>
+      <div class="card-bottom">Custom to Your Goals</div>
+    </div>
+    <div class="service-card reveal" style="transition-delay:0.32s">
+      <div class="card-icon-wrap"><span>✍️</span></div>
+      <h3 class="card-title">Notary Services</h3>
+      <p class="card-desc">Fast, professional notarization for contracts, legal documents, affidavits, and more. Convenient scheduling available for individuals and businesses throughout the Detroit area.</p>
+      <div class="card-bottom">By Appointment</div>
+    </div>
+    <div class="service-card reveal" style="transition-delay:0.4s">
+      <div class="card-icon-wrap"><span>🌐</span></div>
+      <h3 class="card-title">Website Development</h3>
+      <p class="card-desc">Professional, mobile-friendly websites that make your business look the part. We build clean, fast sites that convert visitors into customers — without the agency price tag.</p>
+      <div class="card-bottom">Custom Built for You</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-section" id="about">
+  <div class="about-left reveal">
+    <div class="section-tag">About MZ Resources</div>
+    <h2 class="section-title">Built to Serve<br>Detroit Businesses</h2>
+    <p class="about-text">
+      MZ Resources LLC was founded with one goal in mind: give Detroit's small businesses access to the same professional back-office services that larger companies take for granted. We're not a faceless corporation — we're your local partner, invested in your success.
+    </p>
+    <div class="about-highlight">
+      "Every business deserves accurate books, reliable payroll, and a professional presence — regardless of size."
+    </div>
+    <p class="about-text">
+      With hands-on experience in the payroll industry and a passion for helping businesses grow, MZ Resources brings expertise, honesty, and attention to detail to every client relationship.
+    </p>
+    <div class="about-pills">
+      <span class="pill">Licensed LLC</span>
+      <span class="pill">Detroit Based</span>
+      <span class="pill">Payroll Specialist</span>
+      <span class="pill">Small Biz Focused</span>
+      <span class="pill">Certified Notary</span>
+    </div>
+  </div>
+  <div class="about-right">
+    <div class="about-img"></div>
+  </div>
+</section>
+
+<!-- INDUSTRIES -->
+<section class="industries-section" id="industries">
+  <div class="industries-header reveal">
+    <div>
+      <div class="section-tag">Who We Serve</div>
+      <h2 class="section-title">Industries<br>We Work With</h2>
+    </div>
+    <p class="section-body">
+      We work with businesses across a wide range of industries. If you run a business, we can help you manage the financial and administrative side — so you can focus on what you do best.
+    </p>
+  </div>
+  <div class="industries-grid">
+    <div class="industry-card reveal">
+      <span class="industry-icon">🏗️</span>
+      <div class="industry-name">Construction</div>
+      <div class="industry-desc">Job costing, contractor payroll, and project-based bookkeeping.</div>
+    </div>
+    <div class="industry-card reveal" style="transition-delay:0.08s">
+      <span class="industry-icon">🍽️</span>
+      <div class="industry-name">Food & Restaurant</div>
+      <div class="industry-desc">Tips tracking, hourly payroll, and vendor expense management.</div>
+    </div>
+    <div class="industry-card reveal" style="transition-delay:0.16s">
+      <span class="industry-icon">🔧</span>
+      <div class="industry-name">Trades & Contractors</div>
+      <div class="industry-desc">Plumbers, electricians, HVAC, and skilled trade businesses.</div>
+    </div>
+    <div class="industry-card reveal" style="transition-delay:0.24s">
+      <span class="industry-icon">🏥</span>
+      <div class="industry-name">Healthcare</div>
+      <div class="industry-desc">Clinics, home care agencies, and independent practitioners.</div>
+    </div>
+    <div class="industry-card reveal" style="transition-delay:0.32s">
+      <span class="industry-icon">🚚</span>
+      <div class="industry-name">Transportation</div>
+      <div class="industry-desc">Trucking, logistics, and fleet-based business financials.</div>
+    </div>
+    <div class="industry-card reveal" style="transition-delay:0.4s">
+      <span class="industry-icon">💈</span>
+      <div class="industry-name">Beauty & Wellness</div>
+      <div class="industry-desc">Salons, barbershops, spas, and independent stylists.</div>
+    </div>
+    <div class="industry-card reveal" style="transition-delay:0.48s">
+      <span class="industry-icon">🏠</span>
+      <div class="industry-name">Real Estate</div>
+      <div class="industry-desc">Property managers, landlords, and real estate investors.</div>
+    </div>
+    <div class="industry-card reveal" style="transition-delay:0.56s">
+      <span class="industry-icon">⚡</span>
+      <div class="industry-name">Any Industry</div>
+      <div class="industry-desc">If you run a business, we can help. Reach out and let's talk.</div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials-section">
+  <div class="testimonials-header reveal">
+    <div class="section-tag">Testimonials</div>
+    <h2 class="section-title">What Our Clients Say</h2>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testimonial-card reveal">
+      <div class="t-stars">★★★★★</div>
+      <p class="t-quote">"MZ Resources cleaned up years of messy books in no time. I finally feel like I know what's going on in my business. Can't recommend them enough."</p>
+      <div class="t-author">
+        <div class="t-avatar">DT</div>
+        <div>
+          <div class="t-name">D. Thompson</div>
+          <div class="t-role">Construction Business Owner · Detroit</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card reveal" style="transition-delay:0.1s">
+      <div class="t-stars">★★★★★</div>
+      <p class="t-quote">"They saved us money on payroll right away. We were overpaying our old provider and didn't even know it. The consulting service alone paid for itself."</p>
+      <div class="t-author">
+        <div class="t-avatar">RJ</div>
+        <div>
+          <div class="t-name">R. Jackson</div>
+          <div class="t-role">Restaurant Owner · Detroit</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card reveal" style="transition-delay:0.2s">
+      <div class="t-stars">★★★★★</div>
+      <p class="t-quote">"Professional, responsive, and genuinely helpful. They built my website and handle my books — it's nice having one trusted resource for multiple things."</p>
+      <div class="t-author">
+        <div class="t-avatar">KW</div>
+        <div>
+          <div class="t-name">K. Williams</div>
+          <div class="t-role">Independent Contractor · Michigan</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="faq-inner">
+    <div class="faq-left reveal">
+      <div class="section-tag">FAQ</div>
+      <h2 class="section-title">Common<br>Questions</h2>
+      <p class="section-body">Have a question not listed here? Reach out directly — we're happy to talk through your specific situation.</p>
+      <br>
+      <a href="#contact" class="btn-primary" style="margin-top:1rem">Ask Us Anything</a>
+    </div>
+    <div class="faq-list reveal" style="transition-delay:0.15s">
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Do I need to be in Detroit to work with you?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">Not at all. While we're based in Detroit, we work with clients remotely across Michigan and beyond. Most of our services are fully digital — we can handle everything via email, phone, or video call.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          How does payroll consulting work?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">We review your current payroll setup, provider fees, and contract terms, then identify where you're overpaying or underserved. Many clients find significant savings after a single consultation.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          What if my books are a mess?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">That's exactly why we're here. We specialize in getting disorganized financials back on track. We'll assess where things stand and build a clean system going forward — no judgment.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          How long does a website take to build?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">Most websites are completed within 1–2 weeks depending on complexity and how quickly you can provide content and feedback. We keep the process simple and efficient.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Do you offer ongoing monthly services?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">Yes. We offer monthly bookkeeping and payroll packages for businesses that need consistent, ongoing support. We also offer one-time services for specific needs. Get in touch and we'll find the right fit.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="contact-left reveal">
+    <div class="section-tag">Contact</div>
+    <h2 class="section-title">Let's Talk<br>About Your<br>Business</h2>
+    <p class="section-body">Ready to get started or just have a question? Reach out by phone, text, or the contact form. We respond quickly and always lead with honesty.</p>
+    <div class="contact-details">
+      <a href="tel:3133271876" class="contact-item">
+        <div class="ci-icon">📞</div>
+        <div>
+          <div class="ci-label">Call or Text</div>
+          <div class="ci-value">(313) 327-1876</div>
+        </div>
+      </a>
+      <a href="/cdn-cgi/l/email-protection#325b5c545d725f484057415d47405157415e5e511c515d5f" class="contact-item">
+        <div class="ci-icon">✉️</div>
+        <div>
+          <div class="ci-label">Email</div>
+          <div class="ci-value"><span class="__cf_email__" data-cfemail="acc5c2cac3ecc1d6dec9dfc3d9decfc9dfc0c0cf82cfc3c1">[email&#160;protected]</span></div>
+        </div>
+      </a>
+      <div class="contact-item">
+        <div class="ci-icon">📍</div>
+        <div>
+          <div class="ci-label">Location</div>
+          <div class="ci-value">Detroit, Michigan</div>
+        </div>
+      </div>
+    </div>
+    <div class="social-links">
+      <a href="#" class="social-link">📘 Facebook</a>
+      <a href="#" class="social-link">📸 Instagram</a>
+    </div>
+  </div>
+  <div class="contact-form reveal" style="transition-delay:0.15s">
+    <div class="form-heading">Send a Message</div>
+    <div class="form-sub">We'll get back to you within one business day</div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>First Name</label>
+        <input type="text" placeholder="John">
+      </div>
+      <div class="form-group">
+        <label>Last Name</label>
+        <input type="text" placeholder="Smith">
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Phone / Text</label>
+      <input type="tel" placeholder="(313) 000-0000">
+    </div>
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" placeholder="you@email.com">
+    </div>
+    <div class="form-group">
+      <label>Service You're Interested In</label>
+      <select>
+        <option value="">Select a service...</option>
+        <option>Bookkeeping</option>
+        <option>Payroll Processing</option>
+        <option>Payroll Consulting</option>
+        <option>Business Consulting</option>
+        <option>Notary Services</option>
+        <option>Website Development</option>
+        <option>Multiple Services</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Tell Us About Your Business</label>
+      <textarea placeholder="Industry, size, what you need help with..."></textarea>
+    </div>
+    <button class="form-submit" onclick="alert('Thank you! We\'ll be in touch soon.')">Send Message →</button>
+  </div>
+</section>
+
+<!-- BOTTOM BAR -->
+<div class="bottom-bar">
+  <a href="tel:3133271876" class="bb-item">
+    <div class="bb-icon">📞</div>
+    <div>
+      <div class="bb-label">Call or Text</div>
+      <div class="bb-value">(313) 327-1876</div>
+    </div>
+  </a>
+  <div class="bb-item">
+    <div class="bb-icon">📍</div>
+    <div>
+      <div class="bb-label">Based In</div>
+      <div class="bb-value">Detroit, Michigan</div>
+    </div>
+  </div>
+  <div class="bb-item">
+    <div class="bb-icon">💼</div>
+    <div>
+      <div class="bb-label">Entity</div>
+      <div class="bb-value">MZ Resources LLC</div>
+    </div>
+  </div>
+  <div class="bb-item">
+    <div class="bb-icon">⭐</div>
+    <div>
+      <div class="bb-label">Serving</div>
+      <div class="bb-value">Detroit & All of Michigan</div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-logo-main">MZ <span>Resources</span></div>
+    <div class="footer-logo-sub">LLC &nbsp;·&nbsp; Detroit, Michigan</div>
+  </div>
+  <div class="footer-copy">© 2026 MZ Resources LLC. All rights reserved.</div>
+  <ul class="footer-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#industries">Industries</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) e.target.classList.add('visible');
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(r => observer.observe(r));
+
+  // FAQ accordion
+  function toggleFaq(btn)
